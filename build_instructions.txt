@@ -1,0 +1,47 @@
+Build Instructions for LiDAR Extrinsic Calibration
+==================================================
+
+Prerequisites:
+- CMake (version 3.10 or higher)
+- C++ compiler with C++14 support
+- Ceres Solver library
+- Eigen3 library
+
+Installing Dependencies (Ubuntu/Debian):
+---------------------------------------
+sudo apt-get update
+sudo apt-get install cmake build-essential
+sudo apt-get install libeigen3-dev
+sudo apt-get install libceres-dev
+
+Building the Project:
+--------------------
+1. Create a build directory:
+   mkdir build
+   cd build
+
+2. Configure with CMake:
+   cmake ..
+
+3. Build the project:
+   make -j$(nproc)
+
+Running the Calibration:
+-----------------------
+1. Ensure you have the odometry data files in the current directory:
+   - wheel_odom.txt
+   - lidar_odom.txt
+
+2. Run the calibration:
+   ./extrinsic_calibrator
+
+3. The program will output:
+   - Console: Detailed optimization results and final extrinsic parameters
+   - File: corrected_lidar_path.txt (LiDAR trajectory corrected with optimized extrinsic)
+
+Visualizing Results:
+-------------------
+You can visualize the results using the provided Python script:
+python3 ../pyceres_calibrator.py
+
+Or create a simple Python script to plot the original and corrected trajectories.

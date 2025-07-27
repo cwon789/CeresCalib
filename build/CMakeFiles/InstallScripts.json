@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/jay/catkin_lw/src/ceres_calibrator/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
